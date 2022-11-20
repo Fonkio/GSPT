@@ -10,7 +10,7 @@ data class Piece(
     var case: String,
     var price: Double,
     var comment: String,
-    var number: Int
+    var amount: Int
 ){
     constructor() : this("","","",0.0,"",0)
 }

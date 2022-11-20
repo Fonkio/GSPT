@@ -10,161 +10,92 @@
         android:layout_height="wrap_content">
 
         <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/tvLibellePiece"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Libelle"
-                android:textStyle="bold" />
+            <ImageView
+                android:id="@+id/ivPiece"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_marginEnd="16dp"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/ic_piece" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textViewPar"
+                    android:id="@+id/tvLibellePiece"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="5dp"
-                    android:text="par" />
-
-                <TextView
-                    android:id="@+id/textViewUsername"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:text="author"
+                    android:text="Libelle"
                     android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvCase"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Casier" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvPrice"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="00,00" />
+
+                    <TextView
+                        android:id="@+id/tvCurrency"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/currency" />
+                </LinearLayout>
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:id="@+id/linearLayout2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textViewSizeDownloaded"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/tvX"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="5dp"
-                    android:text="dl" />
+                    android:layout_weight="1"
+                    android:text="@string/cross"
+                    android:textSize="34sp" />
 
                 <TextView
-                    android:id="@+id/textViewSizeUpload"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="5dp"
-                    android:text="TextView"
-                    android:visibility="gone" />
-
-                <TextView
-                    android:id="@+id/textViewSlash"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="5dp"
-                    android:text="/" />
-
-                <TextView
-                    android:id="@+id/textViewSize"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="5dp"
-                    android:text="size" />
-
-                <TextView
-                    android:id="@+id/textViewSizeUnit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="5dp"
-                    android:text="sizeUnit" />
-
-                <TextView
-                    android:id="@+id/textViewPercentage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="%" />
-
-                <TextView
-                    android:id="@+id/textViewPercentageTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="5dp"
-                    android:text="%" />
-
-                <TextView
-                    android:id="@+id/textViewSpeedDownload"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="5dp"
-                    android:text="speedDl" />
-
-                <TextView
-                    android:id="@+id/textViewSpeedUpload"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="5dp"
-                    android:text="speedUl"
-                    android:visibility="gone" />
-
-                <TextView
-                    android:id="@+id/textViewSpeedUnit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="speedUnit" />
-
-                <TextView
-                    android:id="@+id/textViewStatus"
+                    android:id="@+id/tvAmount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="status"
-                    android:textAlignment="textEnd" />
+                    android:text="0"
+                    android:textSize="34sp" />
             </LinearLayout>
 
-            <ProgressBar
-                android:id="@+id/progressBarDownload"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <ImageButton
-                    android:id="@+id/buttonPause"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="pause"
-                    app:srcCompat="@android:drawable/ic_media_pause" />
-
-                <ImageButton
-                    android:id="@+id/buttonPlay"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="play"
-                    app:srcCompat="@android:drawable/ic_media_play" />
-
-                <ImageButton
-                    android:id="@+id/buttonDelete"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="delete"
-                    app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
-            </LinearLayout>
         </LinearLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

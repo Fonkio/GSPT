@@ -5,4 +5,11 @@
     <string name="dbStatusOk">Base de données chargée : %d tracteur(s) et %d pièce(s)</string>
     <string name="dbStatusKo">Erreur chargement de la base</string>
     <string name="add">Ajouter</string>
+    <string name="cross">x</string>
+    <string name="currency">€</string>
+    <string name="libelle">Libelle</string>
+    <string name="cases">Casier</string>
+    <string name="price">Prix</string>
+    <string name="comment">Commentaire</string>
+    <string name="editPicture">Modifier l\'image</string>
 </resources>

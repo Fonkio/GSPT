@@ -12,6 +12,8 @@ interface IPieceDao {
 
     @Query("SELECT COUNT(*) FROM Piece")
     fun sumPieceNumber() : Single<Int>
+    @Query("SELECT * FROM Piece")
+    fun getAll(): List<Piece>
     @Insert
     fun insertAll(vararg piece: Piece)
     @Delete

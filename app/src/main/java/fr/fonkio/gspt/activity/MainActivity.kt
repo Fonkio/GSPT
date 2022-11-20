@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.room.Room
 import fr.fonkio.gspt.R
 import fr.fonkio.gspt.dao.IPieceDao
@@ -23,10 +24,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        db = Room.databaseBuilder(
-            applicationContext,
-            AppDatabase::class.java, "database-gspt"
-        ).allowMainThreadQueries().build()
+        Toast.makeText(this, "test", Toast.LENGTH_LONG).show()
+        db = AppDatabase.getInstance(this)
+
         pieceDao = db.pieceDao()
         tractorDao = db.tractorDao()
         btTractor = findViewById(R.id.btTracteur)
