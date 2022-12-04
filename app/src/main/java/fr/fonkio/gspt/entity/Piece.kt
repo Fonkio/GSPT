@@ -7,10 +7,10 @@ import androidx.room.PrimaryKey
 data class Piece(
     @PrimaryKey var reference: String,
     var libelle: String,
-    var case: String,
+    var cases: String,
     var price: Double,
     var comment: String,
     var amount: Int
-){
+) : java.io.Serializable {
     constructor() : this("","","",0.0,"",0)
 }

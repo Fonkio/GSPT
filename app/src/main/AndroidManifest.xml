@@ -13,7 +13,24 @@
         android:theme="@style/Theme.GSPT"
         tools:targetApi="31">
         <activity
+            android:name=".activity.TractorDetailActivity"
+            android:windowSoftInputMode="adjustResize"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activity.TractorActivity"
+            android:windowSoftInputMode="adjustResize"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".activity.PieceDetailActivity"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -21,6 +38,7 @@
         </activity>
         <activity
             android:name=".activity.PieceActivity"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -28,6 +46,7 @@
         </activity>
         <activity
             android:name=".activity.MainActivity"
+            android:windowSoftInputMode="adjustResize"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

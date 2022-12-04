@@ -12,4 +12,15 @@
     <string name="price">Prix</string>
     <string name="comment">Commentaire</string>
     <string name="editPicture">Modifier l\'image</string>
+    <string name="amount">Nombre</string>
+    <string name="reference">Référence</string>
+    <string name="ref_already_exist">La référence existe déjà !</string>
+    <string name="tractor_already_exist">Le tracteur existe déjà !</string>
+    <string name="model">Modèle</string>
+    <string name="brand">Marque</string>
+    <string name="tractor_list">Liste des tracteurs</string>
+    <string name="dbLocation">Emplacement de la base : %s</string>
+    <string name="piece_list">Liste des pièces</string>
+    <string name="edit_piece">Editer la pièce</string>
+    <string name="edit_tractor">Editer le tracteur</string>
 </resources>

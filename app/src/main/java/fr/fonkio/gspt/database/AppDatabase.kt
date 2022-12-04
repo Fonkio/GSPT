@@ -5,14 +5,17 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import fr.fonkio.gspt.dao.IPieceDao
+import fr.fonkio.gspt.dao.IPieceWithTractorDao
 import fr.fonkio.gspt.dao.ITractorDao
 import fr.fonkio.gspt.entity.Piece
+import fr.fonkio.gspt.entity.PieceWithTractors
 import fr.fonkio.gspt.entity.Tractor
 
-@Database(entities = [Piece::class, Tractor::class], version = 1)
+@Database(entities = [Piece::class, Tractor::class, PieceWithTractors::class], version = 1)
 abstract class AppDatabase : RoomDatabase(), java.io.Serializable {
     abstract fun pieceDao(): IPieceDao
     abstract fun tractorDao(): ITractorDao
+    abstract fun pieceWithTractorDao(): IPieceWithTractorDao
 
     companion object {
         private var INSTANCE: AppDatabase? = null

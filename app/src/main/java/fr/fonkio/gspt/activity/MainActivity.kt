@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btTractor : Button
     private lateinit var btPiece : Button
     private lateinit var tvDbStatus : TextView
+    private lateinit var tvDbLocation : TextView
     private lateinit var db : AppDatabase
     private lateinit var pieceDao: IPieceDao
     private lateinit var tractorDao: ITractorDao
@@ -24,7 +25,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        Toast.makeText(this, "test", Toast.LENGTH_LONG).show()
         db = AppDatabase.getInstance(this)
 
         pieceDao = db.pieceDao()
@@ -32,17 +32,22 @@ class MainActivity : AppCompatActivity() {
         btTractor = findViewById(R.id.btTracteur)
         btPiece = findViewById(R.id.btPiece)
         tvDbStatus = findViewById(R.id.tvDbStatus)
+        tvDbLocation = findViewById(R.id.tvDbLocation)
+
         btTractor.setOnClickListener { onBtTractorClicked() }
         btPiece.setOnClickListener { onBtPieceClicked() }
+    }
+
+    override fun onResume() {
+        super.onResume()
         tvDbStatus.text =
             getString(R.string.dbStatusOk).format(tractorDao.countTractor().blockingGet(), pieceDao.sumPieceNumber().blockingGet())
-
+        tvDbLocation.text = getString(R.string.dbLocation).format(getDatabasePath("database-gspt").absolutePath)
     }
 
     private fun onBtTractorClicked() {
-
-
-
+        val intent = Intent(this, TractorActivity::class.java)
+        startActivity(intent)
     }
 
     private fun onBtPieceClicked() {
