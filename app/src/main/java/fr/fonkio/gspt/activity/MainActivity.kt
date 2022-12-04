@@ -3,14 +3,16 @@ package fr.fonkio.gspt.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Environment
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
-import androidx.room.Room
 import fr.fonkio.gspt.R
 import fr.fonkio.gspt.dao.IPieceDao
 import fr.fonkio.gspt.dao.ITractorDao
 import fr.fonkio.gspt.database.AppDatabase
+import java.io.File
+import java.text.SimpleDateFormat
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -36,6 +38,19 @@ class MainActivity : AppCompatActivity() {
 
         btTractor.setOnClickListener { onBtTractorClicked() }
         btPiece.setOnClickListener { onBtPieceClicked() }
+        //tvDbLocation.setOnClickListener { onTvDbLocation() }
+    }
+
+    private fun onTvDbLocation() {
+        val sdf = SimpleDateFormat("dd-MM-yyyy-hh-mm-ss")
+        val currentDate = sdf.format(Date())
+        val dir = File(
+            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),
+            "save-$currentDate"
+        )
+        dir.mkdir()
+        getDatabasePath("database-gspt").parentFile?.copyRecursively(dir)
+
     }
 
     override fun onResume() {

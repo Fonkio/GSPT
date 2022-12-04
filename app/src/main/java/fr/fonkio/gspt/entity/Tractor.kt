@@ -9,11 +9,13 @@ import androidx.room.PrimaryKey
 data class Tractor(
     @PrimaryKey(autoGenerate = true) var tractorId: Long = 0,
     var model: String,
-    var brand: String
+    var brand: String,
+    var version: String
 ): Parcelable {
-    constructor() : this(model = "", brand = "")
+    constructor() : this(model = "", brand = "", version = "")
     constructor(parcel: Parcel) : this(
         parcel.readLong(),
+        parcel.readString()!!,
         parcel.readString()!!,
         parcel.readString()!!)
 
@@ -38,6 +40,7 @@ data class Tractor(
         dest?.writeLong(tractorId)
         dest?.writeString(model)
         dest?.writeString(brand)
+        dest?.writeString(version)
     }
 
     companion object CREATOR : Parcelable.Creator<Tractor> {

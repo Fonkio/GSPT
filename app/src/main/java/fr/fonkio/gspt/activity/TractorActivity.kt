@@ -41,7 +41,6 @@ class TractorActivity : AppCompatActivity(), IRecyclerViewItemClickListener {
         tractorList =
             if (intent.hasExtra("alreadyAdd")) {
                 val alreadyAddedTractor = intent.getParcelableArrayListExtra<Tractor>("alreadyAdd")
-                alreadyAddedTractor?.contains(Tractor(1,"test", "test"))
                 if (alreadyAddedTractor != null) {
                     tractorDao.getAll().filter { t ->
                         !alreadyAddedTractor.contains(t)

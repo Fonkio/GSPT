@@ -23,4 +23,6 @@
     <string name="piece_list">Liste des pièces</string>
     <string name="edit_piece">Editer la pièce</string>
     <string name="edit_tractor">Editer le tracteur</string>
+    <string name="version">Version</string>
+    <string name="remove">Supprimer</string>
 </resources>

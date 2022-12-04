@@ -19,8 +19,8 @@ interface ITractorDao {
     fun delete(tractor: Tractor)
     @Query("SELECT * FROM Tractor")
     fun getAll(): MutableList<Tractor>
-    @Query("SELECT * FROM Tractor WHERE model = :model AND brand = :brand LIMIT 1")
-    fun findByModelAndBrand(model: String, brand: String): Tractor?
+    @Query("SELECT * FROM Tractor WHERE model = :model AND brand = :brand AND version = :version LIMIT 1")
+    fun findByModelAndBrandAndVersion(model: String, brand: String, version: String): Tractor?
     @Query("SELECT DISTINCT brand FROM Tractor")
     fun getAllBrand(): List<String>
 }

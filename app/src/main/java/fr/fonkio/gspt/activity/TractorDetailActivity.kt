@@ -16,6 +16,7 @@ import fr.fonkio.gspt.entity.Tractor
 class TractorDetailActivity : AppCompatActivity() {
     private lateinit var tietModel: TextInputEditText
     private lateinit var actvBrand: AutoCompleteTextView
+    private lateinit var tietVersion: TextInputEditText
 
     private lateinit var db : AppDatabase
     private lateinit var tractorDao : ITractorDao
@@ -25,6 +26,7 @@ class TractorDetailActivity : AppCompatActivity() {
         setContentView(R.layout.activity_tractor_detail)
         tietModel = findViewById(R.id.tietModel)
         actvBrand = findViewById(R.id.actvBrand)
+        tietVersion = findViewById(R.id.tietVersion)
 
         db = AppDatabase.getInstance(this)
         tractorDao = db.tractorDao()
@@ -45,6 +47,7 @@ class TractorDetailActivity : AppCompatActivity() {
     private fun loadPiece(tractor: Tractor) {
         tietModel.setText(tractor.model)
         actvBrand.setText(tractor.brand)
+        tietVersion.setText(tractor.version)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -73,16 +76,18 @@ class TractorDetailActivity : AppCompatActivity() {
     private fun onSaveButtonClicked() {
         val model = tietModel.text.toString()
         val brand = actvBrand.text.toString()
+        val version = tietVersion.text.toString()
 
         val tractor = Tractor(
             model = model,
-            brand = brand
+            brand = brand,
+            version = version
         )
         if (intent.hasExtra("tractor")) {
             val oldTractor = (intent.getParcelableExtra<Tractor>("tractor"))
             if (oldTractor!= null) {
                 //Si on trouve la le tracteur en base et que ce n'est pas la même que l'ancien
-                if ((oldTractor.model != tractor.model || oldTractor.brand != tractor.brand) && tractorDao.findByModelAndBrand(tractor.model, tractor.brand) != null) {
+                if ((oldTractor.model != tractor.model || oldTractor.brand != tractor.brand) && tractorDao.findByModelAndBrandAndVersion(tractor.model, tractor.brand, tractor.version) != null) {
                     Toast.makeText(this, R.string.tractor_already_exist, Toast.LENGTH_LONG).show()
                     return
                 } else {
@@ -91,7 +96,7 @@ class TractorDetailActivity : AppCompatActivity() {
                 }
             }
         } else {
-            if (tractorDao.findByModelAndBrand(tractor.model, tractor.brand) != null) {
+            if (tractorDao.findByModelAndBrandAndVersion(tractor.model, tractor.brand, tractor.version) != null) {
                 Toast.makeText(this, R.string.tractor_already_exist, Toast.LENGTH_LONG).show()
                 return
             } else {

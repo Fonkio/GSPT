@@ -67,6 +67,7 @@ class PieceDetailActivity : AppCompatActivity(),
         tietComment = findViewById(R.id.tietComment)
         btAddTractor = findViewById(R.id.btAddTractor)
         rvTractor = findViewById(R.id.rvTractor)
+        btAddTractor.isEnabled = false
         with(rvTractor) {
             layoutManager = LinearLayoutManager(this@PieceDetailActivity)
             adapter = TractorAdapter(tractors, null, this@PieceDetailActivity)
@@ -79,6 +80,7 @@ class PieceDetailActivity : AppCompatActivity(),
 
         if (intent.hasExtra("piece")) {
             loadPiece(intent.getSerializableExtra("piece") as Piece)
+            btAddTractor.isEnabled = true
         }
 
         supportActionBar?.title = getString(R.string.edit_piece)

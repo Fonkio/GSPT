@@ -33,11 +33,13 @@ class TractorAdapter (private val tractorList: List<Tractor>, private val onClic
 
         private val tvBrand: TextView = itemView.findViewById(R.id.tvBrand)
         private val tvModel: TextView = itemView.findViewById(R.id.tvModelTractor)
+        private val tvVersion: TextView = itemView.findViewById(R.id.tvVersion)
         private val ibtRemove: ImageButton = itemView.findViewById(R.id.ibtRemove)
 
         fun bind(tractor: Tractor) {
             tvBrand.text = tractor.brand
             tvModel.text = tractor.model
+            tvVersion.text = tractor.version
             ibtRemove.visibility = if(onButtonRemoveButtonClickListener == null) View.GONE else View.VISIBLE
             ibtRemove.setOnClickListener { onButtonRemoveButtonClickListener?.onClickItemRemove(adapterPosition) }
         }
